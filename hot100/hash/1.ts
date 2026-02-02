@@ -4,13 +4,11 @@
 // 输出：[0,1]
 // 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
 
-function twoSum(nums: number[], target: number): number[] {
+function twoSum(nums: number[], tar: number): number[] {
   const mp = new Map();
   for (let i = 0; i < nums.length; i++) {
-    if (mp.has(nums[i])) {
-      return [mp.get(nums[i]), i];
-    }
-    mp.set(target - nums[i], i);
+    if (mp.has(nums[i])) return [mp.get(nums[i]), i];
+    mp.set(tar - nums[i], i);
   }
   return [];
 }

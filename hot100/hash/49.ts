@@ -16,21 +16,13 @@ const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 console.log(groupAnagrams(strs));
 
 const groupAnagrams2 = (words = ["eat", "tea", "tan", "ate", "nat", "bat"]) => {
-  const map = new Map();
+  const mp = new Map();
   for (let i = 0; i < words.length; i++) {
-    const key = [...words[i]].sort().join("");
-    if (map.has(key)) map.get(key).push(words[i]);
-    else {
-      map.set(key, [words[i]]);
-    }
+    const w = [...words[i]].sort().join("");
+    mp.has(w) ? mp.get(w).push(words[i]) : mp.set(w, [words[i]]);
   }
-
-  //   const res: string[][] = [];
-  //   for (let [_, v] of map.entries()) {
-  //     res.push(v);
-  //   }
-  //   return res;
-  return [...map.values()];
+  return [...mp.values()];
+  // console.log(typeof mp[Symbol.iterator]);
 };
 
 console.log(groupAnagrams2(strs));
