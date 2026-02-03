@@ -36,10 +36,9 @@ const nums2 = [1, 0, -1];
 console.log(longestConsecutive(nums2));
 
 const longestConsecutive2 = (nums: number[]) => {
-  const set = new Set<number>(nums);
+  const set = new Set(nums);
   let res = 0;
-
-  for (const i of set) {
+  for (let i of set) {
     if (!set.has(i - 1)) {
       let cnt = 1;
       while (set.has(i + cnt)) cnt++;
